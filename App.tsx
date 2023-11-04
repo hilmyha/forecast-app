@@ -1,15 +1,18 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/screens/Home";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-100">
-      
-      
-
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
